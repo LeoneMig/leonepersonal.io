@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Miguel Rossetto Leone da Silva</title>
+<meta name="description" content="Estudante de Ciência da Computação na UNIFAL-MG, de Ribeirão Preto (SP). Tecnologia, hipismo, futebol e literatura.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F6F7F3;
+  --surface: #E9EDE4;
+  --ink: #18222B;
+  --muted: #55626B;
+  --green: #35603B;
+  --sun: #C66F17;
+  --line: #D4D9CE;
+  --head: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11171C;
+    --surface: #182027;
+    --ink: #E8ECE6;
+    --muted: #9AA7AE;
+    --green: #8DBB8F;
+    --sun: #F0A24A;
+    --line: #2A343B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11171C;
+  --surface: #182027;
+  --ink: #E8ECE6;
+  --muted: #9AA7AE;
+  --green: #8DBB8F;
+  --sun: #F0A24A;
+  --line: #2A343B;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration-color: var(--sun); text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+a:hover { color: var(--sun); }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
+
+/* Navegação */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.5rem; }
+.nav .mark { font-family: var(--head); font-weight: 700; text-decoration: none; letter-spacing: -0.01em; }
+.nav ul { display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0; overflow-x: auto; }
+.nav li a { font-family: var(--head); font-weight: 500; font-size: 0.95rem; text-decoration: none; color: var(--muted); white-space: nowrap; }
+.nav li a:hover { color: var(--ink); }
+
+/* Abertura */
+.hero { background: var(--surface); border-bottom: 1px solid var(--line); }
+.hero .wrap {
+  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: center; padding-block: clamp(2rem, 6vw, 4.5rem);
+}
+.hero h1 {
+  font-family: var(--head); font-weight: 700;
+  font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.02; letter-spacing: -0.03em;
+  margin: 0 0 1.25rem; text-wrap: balance;
+}
+.hero p { margin: 0 0 1.75rem; max-width: 30rem; font-size: 1.25rem; color: var(--muted); }
+.hero .cta {
+  display: inline-block; font-family: var(--head); font-weight: 700; text-decoration: none;
+  background: var(--green); color: var(--bg); padding: 0.75rem 1.5rem; border-radius: 4px;
+}
+.hero .cta:hover { background: var(--ink); color: var(--bg); }
+.hero img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 4px; }
+
+/* Seções */
+section { padding-block: clamp(3rem, 8vw, 5.5rem); }
+section + section { border-top: 1px solid var(--line); }
+.split { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 4rem); }
+h2 { font-family: var(--head); font-weight: 700; font-size: clamp(1.6rem, 3.5vw, 2.1rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
+h3 { font-family: var(--head); font-weight: 700; font-size: 1.4rem; letter-spacing: -0.015em; margin: 0 0 0.5rem; }
+.prose { max-width: 38rem; }
+.prose p { margin: 0 0 1.25rem; }
+.prose p:last-child { margin-bottom: 0; }
+
+.figure-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 16rem); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+.photo img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 4px; }
+.photo figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; font-style: italic; }
+
+/* Formação */
+.edu { display: grid; gap: 2rem; max-width: 38rem; }
+.edu h3 { margin-bottom: 0.15rem; }
+.edu .place { color: var(--muted); margin: 0 0 0.75rem; }
+.edu ul { margin: 0; padding-left: 1.25rem; }
+.edu li { margin-bottom: 0.35rem; }
+
+/* Interesses */
+.topics { display: grid; gap: 3rem; }
+.topic { padding-top: 2rem; border-top: 1px solid var(--line); }
+.topic:first-child { padding-top: 0; border-top: 0; }
+
+/* Contato */
+.contact { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; max-width: 38rem; }
+.contact li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 1rem; align-items: baseline; }
+.contact span { font-family: var(--head); font-weight: 500; color: var(--muted); }
+.contact a { overflow-wrap: anywhere; }
+
+footer { border-top: 1px solid var(--line); padding-block: 2rem; color: var(--muted); font-size: 0.95rem; }
+
+@media (max-width: 52rem) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero img { aspect-ratio: 4 / 3; object-position: center 55%; order: -1; }
+  .split, .figure-row { grid-template-columns: 1fr; }
+  .figure-row .photo { max-width: 20rem; }
+  .contact li { grid-template-columns: 1fr; gap: 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="#topo">Miguel Leone</a>
+    <nav aria-label="Seções do site">
+      <ul>
+        <li><a href="#quem-sou">Quem sou</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#estudo">Estudo</a></li>
+        <li><a href="#interesses">Interesses</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Miguel Rossetto Leone da Silva</h1>
+        <p>Estudante de Ciência da Computação na UNIFAL-MG, natural de Ribeirão Preto (SP).</p>
+        <a class="cta" href="#quem-sou">Conheça minha história</a>
+      </div>
+      <img
+        src="images/porsol-768.jpg"
+        srcset="images/porsol-768.jpg 768w, images/porsol-1152.jpg 1152w"
+        sizes="(max-width: 52rem) 100vw, 400px"
+        width="768" height="1024"
+        alt="Eu vendo o pôr do sol em cima de um cavalo">
+    </div>
+  </div>
+
+  <section id="quem-sou">
+    <div class="wrap split">
+      <h2>Quem sou</h2>
+      <div class="figure-row">
+        <div class="prose">
+          <p>Meu nome é Miguel Rossetto Leone da Silva, sou natural de Ribeirão Preto (SP) e carrego comigo uma curiosidade constante por dois universos que parecem distintos, mas se complementam: a tecnologia e a natureza.</p>
+          <p>Desde a infância tive contato com diferentes práticas esportivas, mas nunca me encontrei nos caminhos tradicionais. Foi no hipismo que descobri meu verdadeiro propósito esportivo. A vivência na rotina do haras e a sintonia com os cavalos me moldaram profundamente; a sensação de confiança, foco e controle ao saltar um obstáculo reflete muito da minha postura diante da vida.</p>
+          <p>Paralelamente, cresci cercado pela tecnologia por forte influência do meu pai, que despertou em mim o interesse pelo funcionamento das coisas e se tornou a grande inspiração para minha escolha pela computação. Hoje, encaro a tecnologia com o mesmo rigor e sensibilidade que aprendi no esporte: buscando soluções precisas, disciplina e constante superação.</p>
+        </div>
+        <figure class="photo">
+          <img
+            src="images/cavalo-768.jpg"
+            srcset="images/cavalo-768.jpg 768w, images/cavalo-1152.jpg 1152w"
+            sizes="(max-width: 52rem) 320px, 256px"
+            width="768" height="1024" loading="lazy"
+            alt="Minha visão de cima de um cavalo">
+          <figcaption>Minha visão de cima de um cavalo.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacao">
+    <div class="wrap split">
+      <h2>Formação</h2>
+      <div class="edu">
+        <div>
+          <h3>Bacharelado em Ciência da Computação</h3>
+          <p class="place">Universidade Federal de Alfenas (UNIFAL-MG), Alfenas, MG</p>
+          <ul>
+            <li>2024 – 2027 (previsão de conclusão).</li>
+            <li>Desenvolvimento de projetos acadêmicos e pessoais na área de tecnologia.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Ensino Fundamental e Médio</h3>
+          <p class="place">Colégio Marista, Ribeirão Preto, SP</p>
+          <ul>
+            <li>2009 – 2023.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="estudo">
+    <div class="wrap split">
+      <h2>Estudo</h2>
+      <div class="prose">
+        <p>Estudo Ciência da Computação na Universidade Federal de Alfenas (UNIFAL-MG), e foi lá que comecei a transformar planos em realidade. Me mudei para Alfenas com um objetivo claro: estudar e dar início à minha vida profissional. Deixar a casa e a rotina que eu conhecia não foi simples, mas foi o passo que me ensinou o que é autonomia, responsabilidade e coragem de recomeçar em um lugar novo. Aos poucos, a cidade deixou de ser apenas o endereço da universidade e se tornou o lugar onde construí rotinas, amizades e uma nova versão de mim mesmo.</p>
+        <p>Na UNIFAL-MG, encontrei um ambiente que me estimula a aprender e a produzir. No curso de Computação, desenvolvo projetos acadêmicos que me desafiam a aplicar na prática o que aprendo em sala de aula, como lógica, programação e resolução de problemas, trabalhando em equipe e enfrentando prazos e imprevistos. Paralelamente, também crio projetos pessoais, movidos pela curiosidade e pela vontade de experimentar ideias por conta própria. É nesse espaço de liberdade que testo novas ferramentas e tecnologias, erro, depuro, ajusto e evoluo, e é ali que percebo o quanto estou crescendo como profissional e como pessoa.</p>
+        <p>A universidade também me apresentou a professores, colegas e oportunidades que ampliaram meu horizonte e me mostraram caminhos que eu nem sabia que existiam. Cada disciplina concluída, cada projeto entregue e cada desafio superado me aproximam do profissional que quero me tornar. Sei que ainda estou no começo da jornada, mas sigo com disciplina, curiosidade e gratidão por tudo o que a UNIFAL-MG e Alfenas já me proporcionaram, e com a certeza de que o melhor ainda está por vir.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="interesses">
+    <div class="wrap split">
+      <h2>Passatempos e interesses</h2>
+      <div class="topics">
+
+        <article class="topic">
+          <div class="figure-row">
+            <div class="prose">
+              <h3>Futebol</h3>
+              <p>Meu interesse pelo futebol brasileiro nasceu da paixão que ele desperta em cada canto do país: nos estádios lotados, nas peladas de rua e nas conversas de bar que nunca terminam. Dentro desse universo, meu coração pertence ao Clube Atlético Mineiro. Ser atleticano é viver com intensidade, acreditar mesmo quando tudo parece perdido e carregar no peito a força da Massa, que canta, sofre e vibra como ninguém. O Galo é mais do que um time para mim: é identidade, herança e emoção. Cada camisa preta e branca guarda histórias de ídolos, de viradas improváveis e de conquistas que nos lembram que, no Atlético, a fé é capaz de levar até onde a razão duvida. Seja na alegria dos títulos ou na dor das derrotas, sigo firme, porque Galo é amor que não se explica, se sente.</p>
+            </div>
+            <figure class="photo">
+              <img
+                src="images/estadio-768.jpg"
+                srcset="images/estadio-768.jpg 768w, images/estadio-1152.jpg 1152w"
+                sizes="(max-width: 52rem) 320px, 256px"
+                width="768" height="1024" loading="lazy"
+                alt="Eu no campo do Atlético Mineiro">
+              <figcaption>No campo do Atlético Mineiro.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="topic">
+          <div class="prose">
+            <h3>Hipismo</h3>
+            <p>Desde pequeno, sempre montei, e foi nas costas de um cavalo que descobri uma das maiores paixões da minha vida: o hipismo. Cresci aprendendo que o cavalo não é um instrumento, mas um parceiro, e que o verdadeiro desempenho nasce da confiança, do respeito e da sintonia entre cavaleiro e animal. Cada treino exige disciplina, paciência e sensibilidade, pois é preciso saber ouvir o que o cavalo comunica sem uma única palavra. Do cuidado diário com o animal à emoção de encarar um percurso de obstáculos, o hipismo me ensinou a manter o equilíbrio, a controlar o nervosismo e a levantar depois de cada queda. Quando estamos juntos na pista, o mundo parece desacelerar, e só existem o galope, a concentração e a vontade de superar a próxima barreira. Mais do que um esporte, o hipismo é parte de quem eu sou: uma tradição que carrego desde a infância e uma paixão que continua me desafiando a evoluir a cada salto.</p>
+          </div>
+        </article>
+
+        <article class="topic">
+          <div class="prose">
+            <h3>Tecnologia</h3>
+            <p>A tecnologia sempre esteve presente na minha trajetória, e foi ela que me fez ser quem sou e chegar onde estou hoje. Desde cedo, fui movido pela curiosidade de entender como as coisas funcionam e pela vontade de transformar ideias em soluções reais. Cada novo aprendizado abriu uma porta: o que começou como interesse virou estudo, o estudo virou prática, e a prática me levou a oportunidades que eu nunca imaginei alcançar. A tecnologia me ensinou a pensar de forma lógica, a resolver problemas com criatividade e a encarar os erros como parte do processo, porque todo bug corrigido é uma lição aprendida. Ela também me deu a chance de me conectar com pessoas, ampliar meus horizontes e construir uma carreira baseada em constante evolução. Hoje, olho para o caminho percorrido com gratidão, sabendo que cada linha de código, cada desafio superado e cada ferramenta dominada contribuíram para moldar minha forma de pensar e de agir. Mais do que uma profissão ou um conjunto de ferramentas, a tecnologia é o que me impulsiona a continuar aprendendo, inovando e sonhando mais alto.</p>
+          </div>
+        </article>
+
+        <article class="topic">
+          <div class="prose">
+            <h3>Literatura</h3>
+            <p>Estou apenas no início da minha jornada com a literatura e ainda leio com pouca frequência, mas cada livro que passa por minhas mãos deixa uma marca e desperta a vontade de ir mais longe. Comecei pelas histórias em quadrinhos e livros da série do Batman, que me mostraram como a narrativa pode prender, emocionar e criar mundos inteiros em poucas páginas. Depois, “O Homem que Calculava”, de Malba Tahan, me encantou ao unir aventura, imaginação e matemática de um jeito que eu não imaginava ser possível, provando que o conhecimento também pode ser um prazer. Já “A Morte de Ivan Ilitch”, de Tolstói, me levou a um território mais profundo, fazendo refletir sobre a vida, a finitude e o que realmente importa quando tudo o mais perde o sentido. Ainda estou descobrindo meu caminho entre autores e gêneros, mas sinto que a literatura já começou a ampliar meu olhar, a me tornar mais sensível e a me convidar a enxergar o mundo por outras perspectivas. Sei que tenho muito a ler e muito a aprender, e é justamente isso que torna essa jornada tão empolgante.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap split">
+      <h2>Contato</h2>
+      <ul class="contact">
+        <li><span>E-mail</span> <a href="mailto:miguel.silva@sou.unifal-mg.edu.br">miguel.silva@sou.unifal-mg.edu.br</a></li>
+        <li><span>GitHub</span> <a href="https://github.com/LeoneMig" rel="noopener">github.com/LeoneMig</a></li>
+        <li><span>LinkedIn</span> <a href="https://www.linkedin.com/in/miguel-leone-439a35200/" rel="noopener">linkedin.com/in/miguel-leone-439a35200</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Miguel Rossetto Leone da Silva, Alfenas, MG.</div>
+</footer>
+
+</body>
+</html>
